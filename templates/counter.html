@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <title>Counter</title>
+</head>
+<body>
+    <div class="jumbotron text-center">
+        <h1>Counter</h1>
+    </div>
+    <div class="container">
+        <h2 class='text-center'>Visits: {{ session['visits'] }}</h2>
+        <h2 class='text-center'>Count: {{ session['count'] }}</h2>
+        <div class="row d-flex justify-content-center">
+            <form action="/add_two"><input type="submit" value='Add Two' class='btn btn-primary m-1'></form>
+            <form action="/destroy_session"><input type="submit" value='Reset' class='btn btn-danger m-1'></form>
+        </div>
+        <div class="row d-flex justify-content-center align-middle">
+            <form action="/add_custom" method='POST'>
+                <input type="text" name='custom_step'>
+                <input type="submit" value='Add Custom' class='btn btn-info m-1'>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
